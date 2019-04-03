@@ -1,0 +1,50 @@
+minikube version
+minikube start --vm-driver=hyperv --kubernetes-version="v1.14.0"
+kubectl get nodes
+minikube dashboard
+
+
+
+kubectl create -f pod.yml
+kubectl get pods
+kubectl describe pods
+kubectl get pods/hello-pod
+kubectl delete pods hello-pod
+
+
+
+kubectl create -f rc.yml
+kubectl get rc
+kubectl describe 
+kubectl apply -f rc.yml
+
+
+
+kubectl expose rc hello-rc --name="hello-svc --target-port=8080 --type=NodePort
+kubectl get svc
+kubectl delete svc hello-svc
+
+kubectl create -f svc.yml
+kubectl get svc
+kubectl describe svc hello-svc
+
+kubectl delete rc svc
+
+
+
+kubectl create -f deployment.yml
+kubectl describe deploy hello-deploy
+kubectl get rs
+kubectl describe rs
+
+
+
+kubectl apply -f deployment.yml --record
+kubectl rollout status deployment hello-deploy
+kubectl get deploy hello-deploy
+
+kubectl rollout history deployment hello-deploy
+
+kubectl rollout undo  deployment hello-deploy --to-revision=1
+
+

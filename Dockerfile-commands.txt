@@ -1,0 +1,9 @@
+docker images // -a
+
+docker run -ti --rm alphine:3.4 /bin/sh
+
+docker build -t naresh/aphine:1.0 .
+
+docker images --filter "dangling=true"
+
+docker rmi $(docker images -q --filter "dangling=true")
